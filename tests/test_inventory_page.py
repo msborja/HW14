@@ -10,7 +10,7 @@ def test_add_inventory():
     )
 
 
-@allure.story('Добавление всех товаров в корзину')
+@allure.story('Удаление всех товаров из корзины')
 def test_clear_inventory():
     (
         inventory.open_inventory().
