@@ -12,6 +12,7 @@ def test_successful_autorization():
     autorization.open_autorization_page().fill_username(user).fill_password(
         user).click_login().assert_successful_authorization()
 
+
 @allure.story('Авторизация c аккаунта заблокированного пользователя')
 def test_unsuccessful_autorization():
     user = User(
@@ -20,5 +21,3 @@ def test_unsuccessful_autorization():
     )
     autorization.open_autorization_page().fill_username(user).fill_password(
         user).click_login().assert_unsuccessful_authorization()
-
-
