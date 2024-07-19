@@ -13,7 +13,7 @@ def test_successful_autorization():
         user).click_login().assert_successful_authorization()
 
 @allure.story('Авторизация c аккаунта заблокированного пользователя')
-def test_successful_autorization():
+def test_unsuccessful_autorization():
     user = User(
         username='locked_out_user',
         password='secret_sauce'
