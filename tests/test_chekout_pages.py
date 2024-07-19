@@ -33,7 +33,7 @@ def test_checkout():
 
     (
         checkoutStepTwo
-        .click_finish_button().assert_go_to_complete()
+        .assert_total_price().click_finish_button().assert_go_to_complete()
     )
 
     (

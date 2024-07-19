@@ -1,4 +1,4 @@
-from selene import browser, be, have
+from selene import browser, be, have, query
 import allure
 from saucedemo_tests.data.address import Address
 
@@ -43,10 +43,17 @@ class CheckoutStepTwo:
 
     @allure.step('Проверка стоимости товаров')
     def assert_total_price(self):
-        price_product = browser.all('[data-test="inventory-item-price"]')
-        total_price = 0
-        for price_element in price_product:
-            total_price += price
+        total_price = '[data-test="inventory-item-price"]'
+        size = browser.all(total_price).get(query.size)
+        all_prices = []
+        for i in range(size):
+            price = float(browser.all(total_price).element(i).get(query.text).replace('$', ''))
+            all_prices.append(price)
+        total_sum = sum(all_prices)
+        item_total = float(
+            browser.element('[data-test="subtotal-label"]').get(query.text).replace('Item total: $', ''))
+        assert total_sum == item_total
+        return self
 
     @allure.step('Нажатие на кнопку Finish')
     def click_finish_button(self):
