@@ -17,8 +17,8 @@ def load_env():
 def browser_setting():
     browser.config.base_url = "https://www.saucedemo.com/"
     browser.config.timeout = 10.0
-    browser.config.window_height = 1800
-    browser.config.window_width = 1200
+    browser.config.window_width = 1280
+    browser.config.window_height = 1024
 
     options = Options()
     selenoid_capabilities = {
