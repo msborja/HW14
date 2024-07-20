@@ -1,4 +1,4 @@
-from saucedemo_tests.pages.authorization_page import autorization
+from saucedemo_tests.pages.authorization_page import authorization
 from saucedemo_tests.pages.inventory_page import inventory
 from saucedemo_tests.data.users import User
 from selene import browser
@@ -13,7 +13,7 @@ class Cart:
             username='standard_user',
             password='secret_sauce'
         )
-        autorization.open_autorization_page().fill_username(user).fill_password(
+        authorization.open_authorization_page().fill_username(user).fill_password(
             user).click_login().assert_successful_authorization()
         inventory.click_cart_button().assert_open_cart()
         return self
@@ -39,7 +39,8 @@ class Cart:
 
     @allure.step('Проверка количества товаров в корзине')
     def assert_product_in_cart(self):
-        self.remove_buttons = browser.all("[id^='remove']")
+        remove_buttons = len(browser.all("[id^='remove']"))
+        assert inventory.product_in_cart == remove_buttons
         return self
 
     @allure.step('Удаление товара из корзины')
