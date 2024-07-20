@@ -3,10 +3,10 @@ import allure
 from saucedemo_tests.data.users import User
 
 
-class Autorization:
+class Authorization:
 
     @allure.step('Открытие страницы')
-    def open_autorization_page(self):
+    def open_authorization_page(self):
         browser.open('')
         return self
 
@@ -34,4 +34,4 @@ class Autorization:
         browser.element('[data-test="error"]').should(have.text('Epic sadface: Sorry, this user has been locked out.'))
 
 
-autorization = Autorization()
+authorization = Authorization()

@@ -1,5 +1,5 @@
 from selene import browser
-from saucedemo_tests.pages.authorization_page import autorization
+from saucedemo_tests.pages.authorization_page import authorization
 from saucedemo_tests.data.users import User
 import allure
 
@@ -15,7 +15,7 @@ class Inventory:
             username='standard_user',
             password='secret_sauce'
         )
-        autorization.open_autorization_page().fill_username(user).fill_password(
+        authorization.open_authorization_page().fill_username(user).fill_password(
             user).click_login().assert_successful_authorization()
         return self
 
