@@ -21,11 +21,11 @@ class Inventory:
 
     @allure.step('Добавление в корзину всех товаров')
     def add_all_product_to_cart(self):
-        self.all_elements = browser.all("[id^='add-to-cart']")
-        self.product_added = 0
-        for button in self.all_elements:
+        all_elements = browser.all("[id^='add-to-cart']")
+        product_added = 0
+        for button in all_elements:
             button.click()
-            self.product_added += 1
+            product_added += 1
         return self
 
     @allure.step('Проверка добавления всех товаров в корзину')
